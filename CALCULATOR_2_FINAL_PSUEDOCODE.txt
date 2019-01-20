@@ -1,0 +1,29 @@
+Read the equation. 
+
+Create a stack to keep all the operands and operators in. 
+
+While there are more inputs(number or operator) in the equation, run the while loop.{ 
+
+	If the input is a number{ 
+		push the input into the stack.
+	}
+
+	else{ 
+	
+		If it is multiplication/divison{ 
+			Initialize a variable currentinput which is equal to the operator.
+	
+			Then read the next input as the next value in the equation being read. 
+
+			Finally, initialize the previous input by popping the stack once.
+
+			Do the calculation and push the answer into the stack.
+		}
+		If it is addition/subtraction{
+			Push input in.
+		}
+	}
+	
+}
+
+Print final output.
