@@ -1,4 +1,4 @@
-Read the equation. 
+Read the equation. (String input = "..."
 
 Create a stack to keep all the operands and operators in. 
 
