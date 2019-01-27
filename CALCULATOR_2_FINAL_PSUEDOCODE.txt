@@ -26,11 +26,15 @@ While there are more inputs(number or operator) in the equation, run the while l
 	
 }
 While the stack has more values{
-	Pop operand from stack
+	Pop operand2 from stack
 	Pop operator from stack
-	pop operand from stack
-	Calculate with three values
-	add answer to final output.
+	pop operand1 from stack
+	If operator = '+'{
+		operand2+operand1;
+	}
+	If operator = '-{
+		operand1-operand2;
+	}
 }
 
 Print final output.
