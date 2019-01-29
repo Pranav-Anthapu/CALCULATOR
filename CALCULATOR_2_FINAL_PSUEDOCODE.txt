@@ -1,40 +1,79 @@
-Read the equation. (String input = "..."
-
-Create a stack to keep all the operands and operators in. 
-
-While there are more inputs(number or operator) in the equation, run the while loop.{ 
-
-	If the input is a number{ 
-		push the input into the stack.
+String inputstring = "..."
+Stack s = new Stack;
+for(int i = 0; i<input.length; i++){ 
+	input = inputstring.charAt(i);
+	if(input == "*" || input == "/"){ 
+		If(operator == "*" || operator == "/"){ 
+			operator = input;
+			operand2 = inputstring.charAt(i+1);
+			operand1 = s.pop;
+			if(operator == '*'){
+				operand1*operand2;
+			}
+			if(operator == '/'){
+				operand1/operand2;
+			}
+		}
 	}
-
-	else{ 
-	
-		If it is multiplication/divison{ 
-			Initialize a variable currentinput which is equal to the operator.
-	
-			Then read the next input as the next value in the equation being read. 
-
-			Finally, initialize the previous input by popping the stack once.
-
-			Do the calculation and push the answer into the stack.
-		}
-		If it is addition/subtraction{
-			Push input in.
-		}
+	else{
+		s.push(input);
 	}
 	
 }
-While the stack has more values{
-	Pop operand2 from stack
-	Pop operator from stack
-	pop operand1 from stack
-	If operator = '+'{
-		operand2+operand1;
-	}
-	If operator = '-{
-		operand1-operand2;
-	}
+Stack sFlip = new Stack;
+while(s.hasElements()){
+	sFlip.push(s.pop());
 }
 
+While(stack.hasMoreValues()){
+	operand1 = sFlip.pop;
+	operator = sFlip.pop;
+	operand2 = sFlip.pop;
+	If(operator = '+'){
+		sFlip.push(operand1+operand2);
+	}
+	If(operator = '-'){
+		sFlip.push(operand1-operand2);
+	}
+}
 Print final output.
+Example:
+
+1. input = "5+4*6+3"
+
+2. s = {}
+
+5. s = {"5"}
+
+20. s = {"+", "5"}
+
+5. s = {"4", "+", "5"}
+
+13. s = {"24", "+", "5"}
+
+20. s = {"+", "24", "+", "5"}
+
+5. s = {"3", "+", "24", "+", "5"}
+
+24. sFlip = {}, s = {"3", "+", "24", "+", "5"}
+
+26. sFlip = {"5"}, {"5", "+"}, {"5", "+", "24"}, {"5", "+", "24", "+"}, {"5", "+", "24", "+", "3"}
+
+26. s = {"3", "+", "24", "+", "5"}, {"3", "+", "24", "+"}, {"3", "+", "24"}, {"3", "+"}, {"3"}, {}
+
+29. operand1 = 5
+
+30. operator = +
+
+31. operand2 = 24
+
+33. sFlip = {"29", "+", "3"}
+
+29. operand1 = 29
+
+30. operator = +
+
+31. operand2 = 3
+
+39. In console, it read "32".
+
