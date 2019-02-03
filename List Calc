@@ -1,0 +1,36 @@
+String inputstring = "..."
+StringTokenizer tokenizer = new StringTokenizer(inputstring, "*/+- ", true);
+List l = new List;
+while(tokenizer.hasMoreTokens){ 
+  input = tokenizer.nextToken;
+	if(input == "*" || input == "/"){ 
+		If(operator == "*" || operator == "/"){ 
+			operator = input;
+			operand2 = tokenizer.nextToken;
+			operand1 = l.remove.(l.size()-1);
+			if(operator == '*'){
+				operand1*operand2;
+			}
+			if(operator == '/'){
+				operand1/operand2;
+			}
+		}
+	}
+	else{
+		s.add(input);
+	}
+	
+}
+
+While(stack.hasMoreValues()){
+	operand1 = sFlip.pop;
+	operator = sFlip.pop;
+	operand2 = sFlip.pop;
+	If(operator = '+'){
+		sFlip.push(operand1+operand2);
+	}
+	If(operator = '-'){
+		sFlip.push(operand1-operand2);
+	}
+}
+Print final output.
