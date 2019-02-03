@@ -1,0 +1,48 @@
+package com.pranav;
+import java.util.*;
+public class Calculator_2_Final {
+
+	public static void main(String[] args) {
+		Scanner in = new Scanner(System.in);
+		System.out.println("Please enter an equation.");
+		String inputstring = in.nextLine();
+		StringTokenizer tokenizer = new StringTokenizer(inputstring, "*/+- ", true);
+		Stack<String> expression = new Stack<>();
+		while(tokenizer.hasMoreTokens()) {
+			String input = tokenizer.nextToken();
+			if(!input.equals(" ")) {
+				if(input.equals("*") || input.equals("/")){
+					String operator = input;
+					int operand2 = Integer.parseInt(tokenizer.nextToken());
+					int operand1 = Integer.parseInt(expression.pop());
+					if(operator.equals("*")) {
+						expression.push(String.valueOf(operand1*operand2));
+					}
+					else if(operator.equals("/")) {
+						expression.push(String.valueOf(operand1/operand2));
+					}
+				}
+				else {
+					expression.push(input);
+				}
+			}
+		}
+		Stack<String> expressionFlip = new Stack<>();
+		while(!expression.empty()) {
+			expressionFlip.push(expression.pop());
+		}
+		
+		while(expressionFlip.size()>1) {
+			int operand1 = Integer.parseInt(expressionFlip.pop());
+			String operator = expressionFlip.pop();
+			int operand2 = Integer.parseInt(expressionFlip.pop());
+			if(operator.equals("+")) {
+				expressionFlip.push(String.valueOf(operand1+operand2));
+			}
+			else if(operator.equals("-")) {
+				expressionFlip.push(String.valueOf(operand1-operand2));
+			}
+		}
+		System.out.println(expressionFlip.elementAt(0));
+	}
+}
