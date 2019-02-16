@@ -1,36 +1,67 @@
 String inputstring = "..."
-StringTokenizer tokenizer = new StringTokenizer(inputstring, "*/+- ", true);
 List l = new List;
-while(tokenizer.hasMoreTokens){ 
-  input = tokenizer.nextToken;
+StringTokenizer tokenizer = new StringTokenizer(inputstring, "+-*/ ", true);
+for(int i = 0; i<input.length; i++){ 
 	if(input == "*" || input == "/"){ 
 		If(operator == "*" || operator == "/"){ 
 			operator = input;
-			operand2 = tokenizer.nextToken;
-			operand1 = l.remove.(l.size()-1);
+			operand2 = tokenizer.nexttoken;
+			operand1 = s.remove(i-1);
 			if(operator == '*'){
-				operand1*operand2;
+				l.add(0, operand1*operand2);
 			}
 			if(operator == '/'){
-				operand1/operand2;
+				l.add(0, operand1/operand2);
 			}
 		}
 	}
 	else{
 		s.add(input);
 	}
-	
 }
 
-While(stack.hasMoreValues()){
-	operand1 = sFlip.pop;
-	operator = sFlip.pop;
-	operand2 = sFlip.pop;
+for(int i = 0; i<l.size(); i++){
+	operand1 = l.remove(0);
+	operator = l.remove(1);
+	operand2 = l.remove(2);
 	If(operator = '+'){
-		sFlip.push(operand1+operand2);
+		l.add(operand1+operand2);
 	}
 	If(operator = '-'){
-		sFlip.push(operand1-operand2);
+		l.add(operand1-operand2);
 	}
 }
 Print final output.
+Example:
+
+1. input = "5+4*6+3"
+
+2. s = {}
+
+19. s = {"5"}
+
+19. s = {"5", "+"}
+
+5. s = {"5", "+", "4"}
+
+11. s = {"5", "+", "24"}
+
+19. s = {"5", "+", "24", "+"}
+
+19. s = {"5", "+", "24", "+", "3"}
+
+24. operand1 = 5
+
+25. operator = +
+
+26. operand2 = 24
+
+31. l = {"29", "+", "3"}
+
+24. operand1 = 29
+
+25. operator = +
+
+36. operand2 = 3
+
+34. In console, it read "32".
